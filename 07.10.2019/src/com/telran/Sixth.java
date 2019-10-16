@@ -10,7 +10,7 @@ public class Sixth {
         int i = 1;
         final int x = 1000;
         while (i <= x) {
-            if (i%a==0 || i%b==0 || i%c==0) {
+            if (i % a == 0 || i % b == 0 || i % c == 0) {
                 System.out.println(i);
             }
             i++;
