@@ -6,7 +6,7 @@ public class Second {
         int i = 1;
 
         while (i != 11) {
-            System.out.println ("4 * " + i + " = " + 4 * i + " ");
+            System.out.println("4 * " + i + " = " + 4 * i + " ");
             i++;
         }
     }
