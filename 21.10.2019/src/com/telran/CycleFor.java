@@ -17,7 +17,7 @@ public class CycleFor {
         printNumbersDividedBy5_7_13_toN(100);
         printNumbersDividedBy5_7_13_toN(1000);
     }
-
+    
     private static void printNumbersDividedBy5_7_13_toN(int max) {
 
         for (int i = 1; i <= max; i++) {
@@ -27,13 +27,11 @@ public class CycleFor {
         }
         System.out.println();
     }
-
     static void printDescendingNumbers(int max, int min, int step) {
         for (int currentNumber = max; currentNumber >= min; currentNumber -= step) {
             System.out.println(currentNumber);
         }
     }
-
     static int getSumOfRange(int min, int max, int step) {
         int sum = 0;
         for (int currentNumber = min; currentNumber <= max; currentNumber += step) {
@@ -41,11 +39,10 @@ public class CycleFor {
         }
         return sum;
     }
-
     static void printMultiplicationTable() {
         for (int i = 1; i < 10; i++) {
             for (int j = 1; j < 10; j++) {
-                System.out.print(i + " * " + j +" = " + (i * j) + ";\t");
+                System.out.print(i + " * " + j + " = " + (i * j) + ";\t");
             }
             System.out.println();
         }
