@@ -17,7 +17,7 @@ public class CycleFor {
         printNumbersDividedBy5_7_13_toN(100);
         printNumbersDividedBy5_7_13_toN(1000);
     }
-    
+
     private static void printNumbersDividedBy5_7_13_toN(int max) {
 
         for (int i = 1; i <= max; i++) {
