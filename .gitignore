@@ -3,3 +3,4 @@
 *.class
 21.10.2019/.idea/description.html
 21.10.2019/out/production/21.10.2019/META-INF/21.10.2019.kotlin_module
+*.log
