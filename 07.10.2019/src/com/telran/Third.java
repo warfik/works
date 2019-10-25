@@ -7,7 +7,7 @@ public class Third {
         int b = 1;
         while (a != 11) {
             while (b != 11) {
-                System.out.print(a + " * " + b + " = " + a * b + "; ");
+                System.out.print(a + " * " + b + " = " + a * b + "\t ");
                 b++;
             }
             System.out.println();
