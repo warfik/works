@@ -1,5 +1,5 @@
-public class Arr {
 
+public class Arr {
 
     public static void printArray(int arr[]){
         for (int i = 0; i < arr.length; i++) {
@@ -49,7 +49,6 @@ public class Arr {
             arr[i] = arr[arr.length - 1 - i];
             arr[arr.length - 1 - i] = temp;
             System.out.println(arr[i]);
-
         }
     }
     public static void averageArray(int arr[]) {
