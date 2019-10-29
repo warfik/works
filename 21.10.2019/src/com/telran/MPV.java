@@ -6,13 +6,13 @@ public class MPV {
         int sumM = 0;
         int sumP = 0;
         int sumV = 0;
-        int month =18;
-        int add = month-10;
-        int SalaryMV =50;
-        int SalaryP=40;
-        int monthM=SalaryMV+month;
-        int monthP = SalaryP+(month/2);
-        int monthV = SalaryMV-10;
+        int month = 18;
+        int add = month - 10;
+        int SalaryMV = 50;
+        int SalaryP = 40;
+        int monthM = SalaryMV + month;
+        int monthP = SalaryP + (month / 2);
+        int monthV = SalaryMV - 10;
 
         for (int m = SalaryMV; m < monthM; m++) {
             sumM += m;
@@ -20,20 +20,19 @@ public class MPV {
         for (int p = SalaryP; p < monthP; p++) {
             sumP += p;
         }
-        sumP=sumP*2;
-        for (int v=SalaryMV; v >monthV; v--){
-            sumV +=v;
+        sumP = sumP * 2;
+        for (int v = SalaryMV; v > monthV; v--) {
+            sumV += v;
         }
-        sumV += (SalaryMV*add);
+        sumV += (SalaryMV * add);
 
-        int total = sumM+sumP+sumV;
+        int total = sumM + sumP + sumV;
 
         System.out.println(sumM);
         System.out.println(sumP);
         System.out.println(sumV);
 
         System.out.println(total);
-
 
 
     }
