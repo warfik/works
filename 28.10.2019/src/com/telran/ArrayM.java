@@ -10,8 +10,8 @@ public class ArrayM {
         int[] array3 = twoAllArray(10);
         printArray(array3);
 
-        int[] array4 = reverseArray();
-        printArray(array3);
+        int[] array4 = reverseArray( );
+        printArray(array4);
 
     }
     static void sumTwoArray(int arr[]) {
