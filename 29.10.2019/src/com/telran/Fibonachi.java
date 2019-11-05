@@ -3,11 +3,11 @@ package com.telran;
 public class Fibonachi {
 
     public static void main(String[] args) {
-        fib();
+        fib(20);
     }
 
-    public static void fib() {
-        int[] Array = new int[20];
+    public static void fib(int n) {
+        int[] Array = new int[n];
         for (int i = 0; i < Array.length; i++) {
             if (i < 2) {
                 Array[i] = 1;
