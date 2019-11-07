@@ -5,8 +5,7 @@ public class Main {
     public static void main(String[] args) {
         {
             System.out.println("Task №1");
-            // так как значение переводится в Int в десятичной системе исчисления, то используем стандартную библиотеку
-            // для перевода в бинарную систему.
+
             System.out.println("summa variable 1001+10101 is " + Integer.toBinaryString(0b1001 + 0b10101));
             System.out.println("diff variable 1001101-10010 is " + Integer.toBinaryString(0b1001101 - 0b10010));
             System.out.println("summa variable 111+1011 is " + Integer.toBinaryString(0b111 + 0b1011));
@@ -21,5 +20,5 @@ public class Main {
             System.out.println("Summa Apples Petr and Maria is: " + (petr + maria));
             //выводим значение суммы яблок петра и марии
         }
-    }r
+    }
 }

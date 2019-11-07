@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4ce6f2b5-c1d4-4bf5-bd50-4e66b9e95666" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../28.10.2019/src/com/telran/ArrayM.java" beforeDir="false" afterPath="$PROJECT_DIR$/../28.10.2019/src/com/telran/ArrayM.java" afterDir="false" />
-    </list>
+    <list default="true" id="127c9d6e-bcfe-45f9-8812-43e7012ef7cf" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  <component name="ProjectId" id="1RHxWVJQblNIX2qJbgeu5LaqM6B" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="ProjectId" id="1RFW9YoR8G1DYD9OhLM7409NBVt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -49,23 +48,29 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4ce6f2b5-c1d4-4bf5-bd50-4e66b9e95666" name="Default Changelist" comment="" />
-      <created>1569263173887</created>
+      <changelist id="127c9d6e-bcfe-45f9-8812-43e7012ef7cf" name="Default Changelist" comment="" />
+      <created>1569337854428</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1569263173887</updated>
+      <updated>1569337854428</updated>
+      <workItem from="1569337866504" duration="630000" />
+      <workItem from="1569353734151" duration="179000" />
+      <workItem from="1569353961502" duration="30000" />
+      <workItem from="1569357049265" duration="140000" />
+      <workItem from="1569357244115" duration="292000" />
+      <workItem from="1569357615934" duration="456000" />
+      <workItem from="1569358111835" duration="63000" />
+      <workItem from="1569358214147" duration="625000" />
+      <workItem from="1569430007754" duration="567000" />
+      <workItem from="1569547842017" duration="53000" />
+      <workItem from="1569547940191" duration="924000" />
+      <workItem from="1569548999423" duration="29000" />
+      <workItem from="1569549463407" duration="150000" />
+      <workItem from="1569603429444" duration="2493000" />
     </task>
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
 </project>
