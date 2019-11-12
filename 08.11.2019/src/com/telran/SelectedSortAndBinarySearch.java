@@ -1,7 +1,6 @@
 package com.telran;
 
 import java.util.Arrays;
-
 public class SelectedSortAndBinarySearch {
     public static void main(String[] args) {
         int[] array = {1, 10, 12, 5, 8, 9, 50, 44, 41, 20, 6, 10, 14, 19, 7,};
