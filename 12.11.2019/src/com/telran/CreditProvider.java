@@ -3,17 +3,33 @@ package com.telran;
 public class CreditProvider {
     CreditProvider(){}
 
-    CreditProvider(String nameIn, String surnameIn, int ageIn) {
-        name = nameIn;
-        surname = surnameIn;
+    CreditProvider(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
     }
-
+// свойства объекта класса
     String name;
     String surname;
+    boolean islasy;
+    boolean isKind;
 
-    boolean CreditUser(CreditUser user) {
+
+    boolean provide(CreditUser creditUser) {
         System.out.println("Hello, my name is " + name + " " + surname );
-    return true;
-    }
+        if (this.islasy) {
+            if () {
 
+            }
+        }
+        if (this.isKind)
+                {
+                    (creditUser.annualSalary)
+        }
+        if(creditUser.annualSalary)
+            return true;
+        {
+}
+
+    return false;
+    }
 }
