@@ -1,7 +1,48 @@
 *.xml
 *.iml
 *.class
-21.10.2019/.idea/description.html
-21.10.2019/out/production/21.10.2019/META-INF/21.10.2019.kotlin_module
+*.html
+*.kotlin_module
 *.log
 *.html
+### JetBrains template
+##  git config --global core.excludesfile .gitignore
+###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio
+
+# plz read fucking readme.md
+/src/main/resources/application.yml
+
+*.iml
+*.json
+
+.idea/*
+.idea/
+out/
+debug/
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+*.class
+*.jar
+*.war
+*.ear
+*.tmp
+*.exe
+
+thumbs.db
+.DS_Store
+*.log
+
+test/
+target/generated-sources/
+target/
+/.classpath
+/.project
+.settings/
