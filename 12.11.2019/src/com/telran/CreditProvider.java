@@ -1,35 +1,38 @@
 package com.telran;
 
 public class CreditProvider {
-    CreditProvider(){}
 
-    CreditProvider(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
-    }
-// свойства объекта класса
     String name;
     String surname;
-    boolean islasy;
+    boolean isLazy;
     boolean isKind;
 
+    public CreditProvider(String name, String surname, boolean isLazy, boolean isKind) {
+        this.name = name;
+        this.surname = surname;
+        this.isLazy = isLazy;
+        this.isKind = isKind;
+    }
 
-    boolean provide(CreditUser creditUser) {
-        System.out.println("Hello, my name is " + name + " " + surname );
-        if (this.islasy) {
-            if () {
-
+    boolean toProvide(CreditUser creditUser) {
+        if (this.isLazy) {
+            if (creditUser.annualSalary > 20000) {
+                return true;
+            } else {
+                return false;
             }
         }
-        if (this.isKind)
-                {
-                    (creditUser.annualSalary)
-        }
-        if(creditUser.annualSalary)
-            return true;
-        {
-}
 
-    return false;
+        if (!this.isKind) {
+            if (creditUser.annualSalary > 20000 && creditUser.age < 50)
+                return true;
+            else
+                return false;
+        }
+
+        if (creditUser.annualSalary > 20000 && creditUser.age < 70)
+            return true;
+
+        return false;
     }
 }
