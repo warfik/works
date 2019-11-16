@@ -2,10 +2,30 @@ package com.telran;
 
 public class CreditProvider {
 
-    String name;
-    String surname;
-    boolean isLazy;
-    boolean isKind;
+    public static final int Salborder = 20000;
+    public static final int mid = 50;
+    public static final int old = 70;
+
+    private String name;
+    private String surname;
+    private boolean isLazy;
+    private boolean isKind;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public boolean isLazy() {
+        return isLazy;
+    }
+
+    public boolean isKind() {
+        return isKind;
+    }
 
     public CreditProvider(String name, String surname, boolean isLazy, boolean isKind) {
         this.name = name;
@@ -14,9 +34,9 @@ public class CreditProvider {
         this.isKind = isKind;
     }
 
-    boolean toProvide(CreditUser creditUser) {
+    public boolean toProvide(CreditUser creditUser) {
         if (this.isLazy) {
-            if (creditUser.annualSalary > 20000) {
+            if (creditUser.annualSalary > Salborder) {
                 return true;
             } else {
                 return false;
@@ -24,13 +44,13 @@ public class CreditProvider {
         }
 
         if (!this.isKind) {
-            if (creditUser.annualSalary > 20000 && creditUser.age < 50)
+            if (creditUser.annualSalary > Salborder && creditUser.age < mid)
                 return true;
             else
                 return false;
         }
 
-        if (creditUser.annualSalary > 20000 && creditUser.age < 70)
+        if (creditUser.annualSalary > Salborder && creditUser.age < old)
             return true;
 
         return false;

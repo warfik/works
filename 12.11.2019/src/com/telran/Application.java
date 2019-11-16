@@ -43,6 +43,16 @@ public class Application {
         CreditUser[] users = {oldPoorGuy, oldRichGuy, youngPoorGuy, youngRichGuy, maturePoorGuy, matureRichGuy};
         CreditProvider[] providers = {vasya, masha, petya};
 
+        for (int i = 0; i < providers.length; i++) {
+            System.out.println(providers[i].getName()+ " " + providers[i].getSurname()+" works:");
+            for (int j = 0; j < users.length; j++) {
+                System.out.println(providers[i].getName()+ "'s decision for"
+                        + users[j].name + " " + users[j].surname+ " is "
+                        +providers[i]
+                        );
+            }
+        }
+
 
         System.out.println("Vasya works:");
         System.out.println(vasya.name + "'s decision for "
