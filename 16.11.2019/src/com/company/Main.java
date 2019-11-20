@@ -1,4 +1,4 @@
-package com.telran;
+package com.company;
 
 public class Main {
 
