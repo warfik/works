@@ -3,22 +3,23 @@ package com.telran;
 import com.telran.collection.SortedNumbersList;
 
 public class Application {
-
     public static void main(String[] args) {
-        // write your code here
-        int[] array = {};
+        int[] listArray = new int[]{19, 8, -6, 34, 8, -7, 24, -58, -6};
 
-        SortedNumbersList list = new SortedNumbersList(new int[]{19, 8, 8, 8, -6, -6, 34});
+        SortedNumbersList list = new SortedNumbersList(listArray);
         list.display();
-
-        System.out.println(list.remove(8));
+        boolean deleted = list.remove(-6);
+        System.out.println("-6 was deleted: " + deleted);
         list.display();
-        System.out.println(list.remove(8));
+        boolean contains = list.contains(34);
+        System.out.println(contains);
+        list.removeById(3);
         list.display();
-        System.out.println();
-//        SortedNumbersList list2 = new SortedNumbersList(new int[]{2, -5, -6});
-
-//        SortedNumbersList list3 = list.intersection(list2);// {-6}
-//        SortedNumbersList list4 = list.union(list2);// {-6, -5, 2, 8, 19, 34}
+        SortedNumbersList list2 = new SortedNumbersList(new int[]{2, 7, 8, 9, 15, -31, 78, 78, 78,});
+        list2.display();
+        list2.removeRepeated();
+        list2.display();
+        SortedNumbersList list4 = list.union(list2);
+        list4.display();
     }
 }
