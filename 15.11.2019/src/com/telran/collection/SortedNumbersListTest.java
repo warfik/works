@@ -45,13 +45,15 @@ public class SortedNumbersListTest {
 
     @Test
     public void testUnion() {
-        SortedNumbersList list = new SortedNumbersList(new int[]{ 1, 2, 3, 4, 5,});
+        SortedNumbersList list = new SortedNumbersList(new int[]{1, 2, 3, 4, 5,});
         SortedNumbersList list2 = new SortedNumbersList(new int[]{6, 7, 5, 8, 9, 10});
         SortedNumbersList unionResult = list.union(list2);
-        SortedNumbersList expected = new SortedNumbersList(new int[]{ 1, 2, 3, 4, 5, 6,7,8,9,10});
+        SortedNumbersList expected = new SortedNumbersList(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
         assertEquals(unionResult.size(), expected.size());
         for (int i = 0; i < unionResult.size(); i++) {
             assertEquals(unionResult.get(i), expected.get(i));
         }
+
+
     }
 }
