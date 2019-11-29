@@ -17,7 +17,7 @@ public class Rectangle extends Shape {
         for (int i = 0; i < height; i++) {
             System.out.println();
             for (int j = 0; j < width; j++) {
-                System.out.print(symbol);
+                System.out.print(symbol + " ");
             }
         }
 
