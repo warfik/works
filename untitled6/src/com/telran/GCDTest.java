@@ -16,9 +16,11 @@ class GCDTest {
     @Test
     public void shouldCalculateGCDofTwoPositiveNumbers() {
         assertEquals(120, gcd.GCD(1080, 1920));
+
     }
     @Test
             public void Negative() {
+
         assertEquals(3, gcd.GCD(21, -9));
     }
 }
