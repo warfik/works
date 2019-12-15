@@ -1,17 +1,28 @@
 package com.telran;
 
 import com.telran.collection.OurArrayList;
+import com.telran.performance_test.ArrayListOperationsStrategy;
+import com.telran.performance_test.ListOperationsStrategy;
+import com.telran.performance_test.ListPerformanceTester;
+
 
 public class Application {
 
     public static void main(String[] args) {
-        OurArrayList list = makeHumanList();
+//        OurArrayList list = makeHumanList();
+//
+//        Human anotherPetya = new Human("Petya", 20);
+//        list.remove(anotherPetya);
+//
+//        System.out.println(anotherPetya);
+//        System.out.println(anotherPetya.toString());
+        ListOperationsStrategy arrayStrategy = new ArrayListOperationsStrategy();
+        ListPerformanceTester arrayTester= new ListPerformanceTester(arrayStrategy);
+        ListOperationsStrategy linkedStrategy = new ArrayListOperationsStrategy();
+        ListPerformanceTester linkedTester= new ListPerformanceTester(linkedStrategy);
 
-        Human anotherPetya = new Human("Petya", 20);
-        list.remove(anotherPetya);
-
-        System.out.println(anotherPetya);
-        System.out.println(anotherPetya.toString());
+        System.out.println(arrayTester.testAppendPerformance(10000000));
+        System.out.println(linkedTester.testAppendPerformance(10000000));
     }
 
     static OurArrayList makeHumanList() {

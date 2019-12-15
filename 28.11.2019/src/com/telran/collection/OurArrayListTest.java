@@ -1,36 +1,38 @@
 package com.telran.collection;
 
-import com.telran.CountryCode;
 import com.telran.comparator.AbstractComparator;
-import com.telran.comparator.CountryCodeComparator;
 import com.telran.comparator.IntegerComparator;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class OurArrayListTest {
 
     @Test
-    public void testAddGet_emptyObject_addsOneElement() {
+    public void testAppendGet_emptyObject_addsOneElement() {
         OurArrayList list = new OurArrayList();
+
         list.append(5);
+
         assertEquals(5, list.get(0));
     }
 
     @Test
-    public void testAddGet_emptyObject_addsSeveralElement() {
+    public void testAppendGet_emptyObject_appendsSeveralElement() {
         OurArrayList list = new OurArrayList();
+
         Integer[] expected = {1, 3, -10, 18, 4, 3, 7, 1, 3, 3, 3, 5, 5, 10, -18, 22, 28, 60, 15, 20};
         for (int i = 0; i < expected.length; i++) {
             list.append(expected[i]);
         }
+
         for (int i = 0; i < expected.length; i++) {
             assertEquals(expected[i], list.get(i));
         }
     }
 
     @Test
-    public void testSize_emptyObject_addsOneElement() {
+    public void testSize_emptyObject_appendsOneElement() {
         OurArrayList list = new OurArrayList();
 
         list.append(5);
@@ -39,7 +41,7 @@ public class OurArrayListTest {
     }
 
     @Test
-    public void testSize_emptyObject_addsSeveralElement() {
+    public void testSize_emptyObject_appendsSeveralElement() {
         OurArrayList list = new OurArrayList();
 
         Integer[] expected = {1, 3, -10, 18, 4, 3, 7, 1, 3, 3, 3, 5, 5, 10, -18, 22, 28, 60, 15, 20};
@@ -51,96 +53,139 @@ public class OurArrayListTest {
     }
 
     @Test
-    public void test_set_value_in_index() {
+    public void testSet_oneElement_swapsElement() {
         OurArrayList list = new OurArrayList();
-        list.append("Katze");
-        list.append("Hund");
-        list.append("Maus");
+        list.append(0);
+        list.set(10, 0);
 
-        list.set("Fisch", 1);
-
-        String[] expected = {"Katze", "Fisch", "Maus"};
-
-        assertEquals(list.size(), expected.length);
-        for (int i = 0; i < expected.length; i++) {
-            assertEquals(list.get(i), expected[i]);
-        }
+        assertEquals(10, list.get(0));
     }
 
     @Test
-    public void remove_By_index() {
-
+    public void testSet_severalElement_swapsFirstLastMiddleElements() {
         OurArrayList list = new OurArrayList();
-        list.append("Katze");
-        list.append("Hund");
-        list.append("Maus");
 
-        String[] expected = {"Katze", "Hund"};
-
-        list.removeById(2);
-
-        assertEquals(list.size(), expected.length);
-        for (int i = 0; i < expected.length; i++) {
-            assertEquals(list.get(i), expected[i]);
+        Integer[] source = {1, 3, -10, 18, 4};
+        for (int i = 0; i < source.length; i++) {
+            list.append(source[i]);
         }
+
+        list.set(10, 0);
+        list.set(5, 4);
+        list.set(-5, 2);
+
+        Integer[] expected = {10, 3, -5, 18, 5};
+
+        for (int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], list.get(i));
+        }
+
+        assertEquals(5, list.size());
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGet_nonEmptyObject_takeOuterElement() {
+        OurArrayList list = new OurArrayList();
+
+        list.append(5);
+        list.append(15);
+        list.append(2);
+        list.append(5);
+
+        list.get(4);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testSet_nonEmptyObject_putOuterElement() {
+        OurArrayList list = new OurArrayList();
+
+        list.append(5);
+        list.append(15);
+        list.append(2);
+        list.append(5);
+
+        list.set(0, 4);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testRemoveById_nonEmptyObject_removesOuterElement() {
+        OurArrayList list = new OurArrayList();
+
+        list.append(5);
+        list.append(15);
+        list.append(2);
+        list.append(5);
+
+        list.removeById(4);
     }
 
     @Test
-    public void remove_By_first_index() {
-
+    public void testRemoveById_nonEmptyObject_removesFirstElement() {
         OurArrayList list = new OurArrayList();
-        list.append("Katze");
-        list.append("Hund");
-        list.append("Maus");
 
-        String[] expected = {"Hund", "Maus"};
+        list.append(5);
+        list.append(15);
+        list.append(2);
+        list.append(5);
+        list.append(17);
+        list.append(20);
 
-        list.removeById(0);
+        Object object = list.removeById(0);
+        assertEquals(5, object);
 
-        assertEquals(list.size(), expected.length);
+        Integer[] expected = {15, 2, 5, 17, 20};
+
         for (int i = 0; i < expected.length; i++) {
-            assertEquals(list.get(i), expected[i]);
+            assertEquals(expected[i], list.get(i));
         }
-    }
 
-
-    public void remove_By_last_index() {
-
-        OurArrayList list = new OurArrayList();
-        list.append("Katze");
-        list.append("Hund");
-        list.append("Maus");
-
-        String[] expected = {"Katze", "Maus",};
-
-        list.removeById(1);
-
-        assertEquals(list.size(), expected.length);
-        for (int i = 0; i < expected.length; i++) {
-            assertEquals(list.get(i), expected[i]);
-        }
+        assertEquals(5, list.size());
     }
 
     @Test
-    public void remove_by_element() {
+    public void testRemoveById_nonEmptyObject_removesMiddleElement() {
         OurArrayList list = new OurArrayList();
-        String[] animals = {"Katze", "Fisch", "Maus", "Hund"};
-        String[] expected = {"Katze", "Maus", "Hund"};
 
-        for (int i = 0; i < animals.length; i++) {
-            list.append(animals[i]);
-        }
+        list.append(5);
+        list.append(15);
+        list.append(2);
+        list.append(5);
+        list.append(17);
+        list.append(20);
 
-        list.remove("Fisch");
+        Object object = list.removeById(2);
+        assertEquals(2, object);
 
-
-        assertEquals(3, list.size());
-
+        Integer[] expected = {5, 15, 5, 17, 20};
 
         for (int i = 0; i < expected.length; i++) {
-            assertEquals(list.get(i), expected[i]);
+            assertEquals(expected[i], list.get(i));
         }
 
+        assertEquals(5, list.size());
+    }
+
+    @Test
+    public void testRemoveById_nonEmptyObject_removesLastElement() {
+        OurArrayList list = new OurArrayList();
+
+        list.append(5);
+        list.append(15);
+        list.append(2);
+        list.append(5);
+        list.append(17);
+        list.append(20);
+
+        Object object = list.removeById(5);
+        assertEquals(20, object);
+
+        Integer[] expected = {5, 15, 2, 5, 17};
+
+        for (int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], list.get(i));
+        }
+
+        assertEquals(5, list.size());
     }
 
     @Test
@@ -158,7 +203,7 @@ public class OurArrayListTest {
     }
 
     @Test
-    public void testMin_severalIntegers() {
+    public void testSort_severalIntegers() {
         OurArrayList list = new OurArrayList();
 
         list.append(5);
@@ -167,28 +212,13 @@ public class OurArrayListTest {
         list.append(5);
 
         AbstractComparator comparator = new IntegerComparator();
+        list.sort(comparator);
+        int[] expected = {2, 5, 5, 15};
 
-        assertEquals(2, list.min(comparator));
-    }
-
-
-    @Test
-    public void sort() {
-        CountryCode Russland = new CountryCode("Russland", 7);
-        CountryCode Deutschland = new CountryCode("Deutschland", 49);
-        CountryCode Thailand = new CountryCode("Thailand", 3);
-        CountryCode Usa = new CountryCode("USA", 100);
-        CountryCode Canada = new CountryCode("Canada", 42);
-
-        OurArrayList codesList = new OurArrayList();
-        codesList.append(Russland);
-        codesList.append(Deutschland);
-        codesList.append(Thailand);
-        codesList.append(Usa);
-        codesList.append(Canada);
-
-        AbstractComparator comparator = new CountryCodeComparator();
-        codesList.sort(comparator);
+        for (int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], list.get(i));
+        }
 
     }
+
 }
