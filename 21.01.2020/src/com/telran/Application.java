@@ -20,8 +20,8 @@ public class Application {
         long speedOfPsa = psaTest.testPrintPerformance(testLine, numOfLines);
         long speedOfPwa = pwaTest.testPrintPerformance(testLine, numOfLines);
 
+        System.out.println("\n*****************\n");
         System.out.println("printStream: " + speedOfPsa);
         System.out.println("printWriter: " + speedOfPwa);
     }
-
 }
