@@ -7,12 +7,16 @@ import java.net.InetAddress;
 
 public class Server extends Thread {
 
+    private static final int PORT = 3003;
+    private static final int DATA_SIZE = 1024;
+
+
     private DatagramSocket socket;
     private boolean running;
-    private byte[]buf = new byte[256];
+    private byte[]buf = new byte[DATA_SIZE];
 
     public Server() throws Exception {
-        socket = new DatagramSocket(4445);
+        socket = new DatagramSocket(PORT);
     }
 
     public void run() {
