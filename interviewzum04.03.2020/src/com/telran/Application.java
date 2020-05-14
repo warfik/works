@@ -11,7 +11,7 @@ public class Application {
         List<Integer> ourCoins01 = new ArrayList(Arrays.asList(3, 2, 1));
         List<Integer> ourCoins02 = new ArrayList(Arrays.asList(10, 5, 3, 2, 1));
         List<Integer> ourCoins03 = new ArrayList(Arrays.asList(5, 2, 1));
-        int sum = 25;
+        int sum = 88;
         Exchange exchange01 = new Exchange(ourCoins01);
         Exchange exchange02 = new Exchange(ourCoins02);
         Exchange exchange03 = new Exchange(ourCoins03);

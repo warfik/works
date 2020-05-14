@@ -1,17 +1,17 @@
 package com.telran.stack;
 
 
-import com.telran.EmptyListException;
-import com.telran.IntegerOurComparator;
-import com.telran.OurComparator;
+import com.telran.comparator.EmptyListException;
+import com.telran.comparator.IntegerOurComparator;
+import com.telran.comparator.OurComparator;
 
 import java.util.*;
 
-public class MaxStack<E> {
+public class OurStack<E> {
     private List<E> source;
 
-    public MaxStack() {
-        source = new ArrayList<>();
+    public OurStack() {
+        source = new LinkedList<>();
     }
 
     public void addLast(E element) {

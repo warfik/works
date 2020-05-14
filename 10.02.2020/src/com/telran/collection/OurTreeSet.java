@@ -2,28 +2,34 @@ package com.telran.collection;
 
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.TreeSet;
 
 public class OurTreeSet<E> implements OurSet<E> {
 
     private TreeNode<E> root;
-    private int size;
     private Comparator<E> comparator;
+    private int size;
 
     public OurTreeSet(Comparator<E> comparator) {
         this.comparator = comparator;
     }
 
     public OurTreeSet() {
-        this.comparator = (o1, o2) -> {
-            Comparable<E> o1comparable = (Comparable<E>) o1;
-            return o1comparable.compareTo(o2);
+        this.comparator = new Comparator<E>() {
+            @Override
+            public int compare(E o1, E o2) {
+                Comparable<E> o1Comparable = (Comparable<E>) o1;
+
+                return o1Comparable.compareTo(o2);
+            }
         };
     }
 
     @Override
     public boolean add(E elt) {
         if (root == null) {
-            root = new TreeNode<>(elt);
+            root = new TreeNode<>();
+            root.key = elt;
             size++;
             return true;
         }
@@ -31,7 +37,7 @@ public class OurTreeSet<E> implements OurSet<E> {
         TreeNode<E> parent = root;
         TreeNode<E> current = root;
 
-        while (current != null && comparator.compare(elt, current.key) != 0) {
+        while (current != null && comparator.compare(current.key, elt) != 0) {
             parent = current;
             current = comparator.compare(elt, current.key) < 0 ? current.left : current.right;
         }
@@ -39,74 +45,54 @@ public class OurTreeSet<E> implements OurSet<E> {
         if (current != null)
             return false;
 
-        TreeNode<E> newNode = new TreeNode<>(elt);
-        newNode.parent = parent;
-        if (comparator.compare(elt, parent.key) < 0)
-            parent.left = newNode;
-        else
-            parent.right = newNode;
+        current = new TreeNode<>();
+        current.key = elt;
+        current.parent = parent;
 
+        if (comparator.compare(elt, parent.key) < 0)
+            parent.left = current;
+        else
+            parent.right = current;
         size++;
         return true;
     }
 
     @Override
-    public boolean remove(E elt)
-        { // (предполагается, что дерево не пусто)
-            TreeNode<E> current = root;
-            TreeNode<E> parent = root;
-            boolean isLeftChild = true;
-            while(current.iData != key) // Поиск узла
-                {
-                        parent = current;
-            if(key < current.iData) // Двигаться налево?
-            {
-                isLeftChild = true;
-                current = current.leftChild;
-            }
-            else // Или направо?
-            {
-                isLeftChild = false;
-                current = current.rightChild;
-            }
-            if(current == null) // Конец цепочки
-                return false; // Узел не найден
-}
-// Удаляемый узел найден
-// Если узел не имеет потомков, он просто удаляется.
-            if(current.leftChild==null &&
-                    current.rightChild==null)
-            {
-                if(current == root) // Если узел является корневым,
-                    root = null; // дерево очищается
-                else if(isLeftChild)
-                    parent.leftChild = null; // Узел отсоединяется
-                else // от родителя
-                    parent.rightChild = null;
-            }
-// Если нет правого потомка, узел заменяется левым поддеревом
-            else if(current.rightChild==null)
-                if(current == root)
-                    root = current.leftChild;
-                else if(isLeftChild)
-                    parent.leftChild = current.leftChild;
-                else
-                    parent.rightChild = current.leftChild;
-// Если нет левого потомка, узел заменяется правым поддеревом
-            else if(current.leftChild==null)
-                if(current == root)
-                    root = current.rightChild;
-                else if(isLeftChild)
-                    parent.leftChild = current.rightChild;
-                else
-                    parent.rightChild = current.rightChild;
-            else
-                // Два потомка, узел заменяется преемникомreturn false;
+    public boolean remove(E elt) {
+
+        TreeNode<E> nodeToRemove = getNode(elt);
+
+        if (nodeToRemove == null)
+            return false;
+
+        if (nodeToRemove.left == null || nodeToRemove.right == null)
+            removeByFirstCase(nodeToRemove);
+        else
+            removeBySecondCase(nodeToRemove);
+
+        return true;
+    }
+
+    private void removeBySecondCase(TreeNode<E> nodeToRemove) {
+
+    }
+
+    private void removeByFirstCase(TreeNode<E> nodeToRemove) {
+
     }
 
     @Override
     public boolean contains(E elt) {
-        return false;
+        return (getNode(elt) != null);
+    }
+
+    private TreeNode<E> getNode(E elt) {
+        TreeNode<E> current = root;
+
+        while (current != null && comparator.compare(current.key, elt) != 0) {
+            current = comparator.compare(elt, current.key) < 0 ? current.left : current.right;
+        }
+        return current;
     }
 
     @Override
@@ -135,13 +121,10 @@ public class OurTreeSet<E> implements OurSet<E> {
     }
 
     private static class TreeNode<E> {
-        public TreeNode(E key) {
-            this.key = key;
-        }
-
         TreeNode<E> parent;
         TreeNode<E> left;
         TreeNode<E> right;
+
         E key;
     }
 }

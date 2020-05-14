@@ -26,12 +26,12 @@ public class OurHashSet<E> implements OurSet<E> {
 
     @Override
     public boolean contains(E elt) {
-        return false;
+        return source.containsKey(elt);
     }
 
     @Override
     public int size() {
-        return 0;
+        return source.size();
     }
 
     @Override
@@ -41,22 +41,37 @@ public class OurHashSet<E> implements OurSet<E> {
         for (E elt : other) {
             res |= this.add(elt);
         }
-
         return res;
     }
 
     @Override
     public boolean removeAll(OurSet<E> other) {
-        return false;
+        OurHashSet<E> ourHashset = (OurHashSet<E>) other;
+
+        boolean res = false;
+        for (E elt : ourHashset.source.keySet()) {
+            res |= this.remove(elt);
+        }
+        return res;
     }
 
     @Override
     public boolean retainAll(OurSet<E> other) {
-        return false;
+        OurHashSet<E> ourHashSet = (OurHashSet<E>) other;
+        boolean res = false;
+        for (E elt : this.source.keySet()) {
+            if (ourHashSet.contains(elt)) {
+                continue;
+            } else {
+                this.remove(elt);
+                res = true;
+            }
+        }
+        return res;
     }
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return source.keySet().iterator();
     }
 }

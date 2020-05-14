@@ -6,12 +6,16 @@ import java.util.Map;
 
 public class OurHashSet<E> implements OurSet<E> {
 
-    private static final Object INSTANCE = new Object();
-
+    private final static Object INSTANCE = new Object();
     private Map<E, Object> source;
 
     public OurHashSet() {
-        source = new HashMap<>();
+        this.source = new HashMap<>();
+    }
+
+    @Override
+    public int size() {
+        return source.size();
     }
 
     @Override
@@ -29,14 +33,9 @@ public class OurHashSet<E> implements OurSet<E> {
         return source.containsKey(elt);
     }
 
-    @Override
-    public int size() {
-        return source.size();
-    }
 
     @Override
     public boolean addAll(OurSet<E> other) {
-
         boolean res = false;
         for (E elt : other) {
             res |= this.add(elt);
@@ -48,7 +47,6 @@ public class OurHashSet<E> implements OurSet<E> {
     @Override
     public boolean removeAll(OurSet<E> other) {
         boolean res = false;
-
         for (E elt : other) {
             res |= this.remove(elt);
         }
@@ -57,9 +55,9 @@ public class OurHashSet<E> implements OurSet<E> {
 
     @Override
     public boolean retainAll(OurSet<E> other) {
-        boolean res = false;
-//        Iterator<E> iterator = iterator();
+//        Iterator<E> iterator = this.iterator();
 //
+//        boolean res = false;
 //        while (iterator.hasNext()) {
 //            E elt = iterator.next();
 //
@@ -69,14 +67,14 @@ public class OurHashSet<E> implements OurSet<E> {
 //            }
 //        }
 
-        OurSet<E> thisMinusOther = new OurHashSet<>();
+        OurSet<E> thisSubtractedOther = new OurHashSet<>();
 
         for (E elt : this) {
             if (!other.contains(elt))
-                thisMinusOther.add(elt);
+                thisSubtractedOther.add(elt);
         }
 
-        return this.removeAll(thisMinusOther);
+        return this.removeAll(thisSubtractedOther);
     }
 
     @Override
