@@ -1,10 +1,8 @@
 *.xml
 *.iml
 *.class
-*.html
 *.kotlin_module
 *.log
-*.html
 ### JetBrains template
 ##  git config --global core.excludesfile .gitignore
 ###
